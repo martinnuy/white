@@ -34,13 +34,17 @@ body{
     font-family: ralewayMedium;
 }
 
+.playButton{
+    z-index: 10;
+}
+
 .bg-image{
 
-    background-image: url(../img/circle2.webp);
     background-repeat: no-repeat; /* Evita la repetición de la imagen */
     background-size: 120% 255%;
     background-position: -35vw 30%;
-
+    transition: background-image 7s ease-in-out;
+    
 }
 
 
@@ -65,3 +69,6 @@ body{
 }
 
 
+#grain::before{
+    z-index: -1;
+}

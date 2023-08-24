@@ -13,10 +13,10 @@ function changeImage() {
 
   //Cambia la imagen cada 20 segundos.
   if( Math.floor(seconds / 40) == 1 ){
-    imageDiv.style.backgroundImage = ' url(../img/circle.webp)';
+    imageDiv.style.backgroundImage = ' url(./img/circle.webp)';
     
     }else{
-        imageDiv.style.backgroundImage = 'url(../img/circle2.webp)';
+        imageDiv.style.backgroundImage = 'url(./img/circle2.webp)';
         currentImageIndex = 1;
     }
     

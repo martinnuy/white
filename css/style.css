@@ -25,6 +25,12 @@ body{
     background-color: #e6e6e6;
 }
 
+.titleDiv{
+    z-index: 20;
+    height: 30%;
+    pointer-events: none;
+}
+
 .name{
     font-size: 60px;
 }
@@ -32,6 +38,10 @@ body{
 .subtitle{
     font-size: 16px;
     font-family: ralewayMedium;
+}
+
+.boldFont{
+    font-family: ralewayBlack;
 }
 
 .playButton{
@@ -54,7 +64,9 @@ body{
     mix-blend-mode: difference;
   }
 
-
+.navElement{
+    pointer-events: all;
+}
 
 .links{
     color: black;
@@ -72,3 +84,35 @@ body{
 #grain::before{
     z-index: -1;
 }
+
+
+::-webkit-scrollbar {display: none;}
+
+.divScroll{
+    overflow-y: scroll;
+    padding-top: 170px;
+}
+
+
+@media (max-width: 767px) {
+    .name {
+        font-size: 30px;
+    }
+
+    .subtitle{
+        font-size: 10px;
+    }
+
+    .divFechas{
+        display: block !important;
+        margin-bottom: 30px;
+    }
+
+    .pFecha{
+        padding: 0px !important;
+    }
+
+    .navElement{
+        font-size: 14px;
+    }
+  }

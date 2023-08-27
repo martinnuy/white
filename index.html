@@ -21,7 +21,7 @@
 
             <div class="row bg-image h-100" id="imageDiv">
 
-                <a class="textColor playButton links mx-3 mt-auto position-absolute bottom-0 start-0" href="javascript:void(0);" onclick="toggleAnimation()"><span class="material-symbols-outlined" id="playButton">pause</span></a>
+                <a class="col-1 textColor playButton links mx-3 mt-auto position-absolute bottom-0 start-0" href="javascript:void(0);" onclick="toggleAnimation()"><span class="material-symbols-outlined" id="playButton">pause</span></a>
 
                 <div class="col-6 col-md-4 titleDiv textColor position-absolute">
 
@@ -30,123 +30,151 @@
                     
                     <nav class="mx-4 mt-5">
                         <ol class="list-unstyled">
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="#inicio">Inicio</a></li>
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="#fechas">Fechas</a></li>
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="#contacto">Contacto</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('home')">Inicio</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('fechas')">Fechas</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('contacto')">Contacto</a></li>
                         </ol>
                     </nav>
 
 
                 </div>
-    
-                <div class="col-md-12 h-100 textColor divScroll">
+                
+
+                <div class="col-md-12 h-100 textColor divScroll hiddenDiv" id="home">
+
+                  <div class="col-6 col-sm-2 col-md-2 col-lg-1 position-absolute bottom-0 end-0">
+                    <p class="boldFont description">Julian Battes es un líder del electropunk y electroclash, fusionando la electrónica 
+                      con letras provocativas. Su colaboración con Crystal Castles resalta su audacia en la experimentación. 
+                      Es un innovador sonoro que desafía los límites de la música electrónica.
+                    </p>
+                  </div>
+
+                </div>
+
+
+
+                
+                <div class="col-md-12 h-100 textColor divScroll hiddenDiv" id="fechas">
 
                     <p class="subtitle text-end">• Presentaciones en Vivo</p>
 
-                    <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2023</p>
-                          <h2 class="m-0 name">Bluzz Live</h2>
-                        </div>
-                      </a>
+                    <div class="d-flex justify-content-end aivFechas">
+                          <a class="text-end links d-flex stify-content-end a align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2023</p>
+                            <h2 class="m-0 name">Bluzz Live</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">19/5/2023</p>
-                          <h2 class="m-0 name">La Trastienda Club MVD</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">19/5/2023</p>
+                            <h2 class="m-0 name">La Trastienda Club MVD</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">4/2/2023</p>
-                          <h2 class="m-0 name">Sala Zitarrosa</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">4/2/2023</p>
+                            <h2 class="m-0 name">Sala Zitarrosa</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">29/10/2022</p>
-                          <h2 class="m-0 name">Antel Arena</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">29/10/2022</p>
+                            <h2 class="m-0 name">Antel Arena</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">15/7/2022</p>
-                          <h2 class="m-0 name">Montevideo Music Box</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">15/7/2022</p>
+                            <h2 class="m-0 name">Montevideo Music Box</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">25/4/2022</p>
-                          <h2 class="m-0 name">Sala del Museo</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">25/4/2022</p>
+                            <h2 class="m-0 name">Sala del Museo</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">9/2/2022</p>
-                          <h2 class="m-0 name">Pinar Bier</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">9/2/2022</p>
+                            <h2 class="m-0 name">Pinar Bier</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">5/10/2021</p>
-                          <h2 class="m-0 name">Clash city rockers Bar</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">5/10/2021</p>
+                            <h2 class="m-0 name">Clash city rockers Bar</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">12/6/2021</p>
-                          <h2 class="m-0 name">Live Era</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">12/6/2021</p>
+                            <h2 class="m-0 name">Live Era</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">2/5/2021</p>
-                          <h2 class="m-0 name">COLD Music Bar</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">2/5/2021</p>
+                            <h2 class="m-0 name">COLD Music Bar</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">19/4/2021</p>
-                          <h2 class="m-0 name">La Cava</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">19/4/2021</p>
+                            <h2 class="m-0 name">La Cava</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">11/3/2021</p>
-                          <h2 class="m-0 name">Libertad Bier</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">11/3/2021</p>
+                            <h2 class="m-0 name">Libertad Bier</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">24/2/2021</p>
-                          <h2 class="m-0 name">El Cañaberal</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">24/2/2021</p>
+                            <h2 class="m-0 name">El Cañaberal</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">12/1/2021</p>
-                          <h2 class="m-0 name">Euphoria Bar Libertad</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">12/1/2021</p>
+                            <h2 class="m-0 name">Euphoria Bar Libertad</h2>
+                          </a>
+                      </div>
 
-                      <a class="text-end links" href="">
-                        <div class="d-flex justify-content-end align-items-end divFechas">
-                          <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2021</p>
-                          <h2 class="m-0 name">Roxx Bar</h2>
-                        </div>
-                      </a>
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2021</p>
+                            <h2 class="m-0 name">Roxx Bar</h2>
+                          </a>
+                      </div>
+
+                </div>
+
+
+
+
+
+
+                <div class="col-md-12 h-100 textColor hiddenDiv" id="contacto">
+
+                  <div class="col-6 col-sm-2 col-md-2 col-lg-1 ">
+                    <a href="mailto:julian@battes.com" target="_blank" class="boldFont description d-flex links position-absolute bottom-0 end-0 mb-3">Contacto <span class="material-symbols-outlined d-flex ml-1" id="playButton">open_in_new</span></a>
+                  </div>
 
                 </div>
 

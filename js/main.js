@@ -1,9 +1,9 @@
 const imageDiv = document.getElementById("imageDiv");
-const images = ["../img/circle.webp", "../img/circle2.webp"]; // Rutas de las imágenes
 let currentImageIndex = 0;
 let isAnimating = true;
 let intervalId;
 
+let elementoActual = 'home';
 
 
 function changeImage() {
@@ -36,3 +36,37 @@ function toggleAnimation() {
 }
 
 changeImage(); // Iniciar el cambio de imágenes
+
+
+
+
+function showDiv( elementCambio ){
+    
+      if(elementoActual != elementCambio){
+
+        document.getElementById(elementoActual).style.opacity = '0';
+
+        setTimeout(() => {
+          document.getElementById(elementoActual).style.visibility = 'hidden';
+          document.getElementById(elementoActual).style.display = 'none';  
+        }, 400);//Deben ser los mismos milisegundos que en la clase 'hiddenDiv'.
+
+      }
+
+      
+  setTimeout(() => {
+
+    document.getElementById(elementCambio).style.visibility = 'visible';
+    document.getElementById(elementCambio).style.display = 'block';
+    
+    setTimeout(() => {
+      document.getElementById(elementCambio).style.opacity = '1';
+      elementoActual = elementCambio;
+    }, 100);
+
+  }, 400);//Deben ser los mismos milisegundos que en la clase 'hiddenDiv'.
+
+  
+}
+
+showDiv('home'); //Inicia mostrando el div 'home';

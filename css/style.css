@@ -103,6 +103,14 @@ body{
     font-size: 12px;
 }
 
+.vh-90{
+    height: 95vh;
+}
+
+.vh-5{
+    height: 4vh;
+}
+
 
 @media (max-width: 767px) {
     .name {

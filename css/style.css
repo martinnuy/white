@@ -23,7 +23,32 @@
 
 body{
     background-color: #e6e6e6;
+    overflow: hidden;
 }
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.loadName, .lastname {
+    font-size: 30px;
+    margin: 5px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Agregamos una transición de opacidad */
+}
+
 
 .titleDiv{
     z-index: 20;
@@ -40,8 +65,27 @@ body{
     font-family: ralewayMedium;
 }
 
+.smallText1{
+    font-size: 13px;
+    font-family: Arial !important;
+}
+
+.smallText2{
+    font-size: 12px;
+    font-family: Arial !important;
+}
+
+.smallText3{
+    font-size: 11px;
+    font-family: Arial !important;
+}
+
 .boldFont{
     font-family: ralewayBlack;
+}
+
+.mediumFont{
+    font-family: ralewayMedium;
 }
 
 .playButton{
@@ -99,6 +143,10 @@ body{
     padding-top: 170px;
 }
 
+.gelleryDiv{
+    padding-top: 15px !important;
+}
+
 .footer{
     font-size: 12px;
 }
@@ -110,6 +158,16 @@ body{
 .vh-5{
     height: 4vh;
 }
+
+.imgHover{
+    transition: filter 0.4s;
+}
+
+.imgHover:hover{
+    filter: brightness(1.5);
+    transition: filter 0.4s;
+}
+
 
 
 @media (max-width: 767px) {

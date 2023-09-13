@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julian Battes</title>
+    <title>Martin N.</title>
 
     <link rel="shortcut icon" href="./img/icon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -13,7 +13,17 @@
 </head>
 <body class="">
     
+      <!-- Pantalla de carga -->
+      <div class="loader" id="loader">
+        <div class="loadName mediumFont d-inline-block" id="loadName">
+          
+          Martin         
+          
+          <div class="lastname d-inline-block" id="lastname">N.</div>
+        
+        </div>
 
+      </div>
 
     <div class="p-5 pb-0 vh-90">
 
@@ -25,14 +35,15 @@
 
                 <div class="col-6 col-md-4 titleDiv textColor position-absolute">
 
-                    <h1 class="mx-4 mt-4 mb-0 name">Julian Battes</h1>
-                    <p class="mx-4 px-1 subtitle">Electropunk & Electroclash</p>
+                    <h1 class="mx-4 mt-4 mb-0 name">Martin N.</h1>
+                    <p class="mx-4 px-1 subtitle">Photography & Fine Arts</p>
                     
                     <nav class="mx-4 mt-5">
                         <ol class="list-unstyled">
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('home')">Inicio</a></li>
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('fechas')">Shows</a></li>
-                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('contacto')">Contacto</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('home')">Home</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('gallery')">Photos</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('fechas')">News</a></li>
+                            <li class="px-1 py-1 navElement col-md-2"><a class="links" href="javascript:void(0);" onclick="showDiv('contacto')">Contact</a></li>
                         </ol>
                     </nav>
 
@@ -43,125 +54,448 @@
                 <div class="col-md-12 h-100 textColor divScroll hiddenDiv" id="home">
 
                   <div class="col-6 col-sm-2 col-md-2 col-lg-1 position-absolute bottom-0 end-0">
-                    <p class="boldFont description">Julian Battes es un líder del electropunk y electroclash, fusionando la electrónica 
-                      con letras provocativas. Su colaboración con Crystal Castles resalta su audacia en la experimentación. 
-                      Es un innovador sonoro que desafía los límites de la música electrónica.
+                    <p class="boldFont description">Cinematic flair in every shot. Each image aims to capture a cinematic moment from everyday life, 
+                      where ordinary moments evolve into compelling visual narratives.  From the world of music to nature and urban scenes, 
+                      these photographs unveil the hidden beauty in the mundane, offering a distinctive perspective on reality.
                     </p>
                   </div>
 
                 </div>
 
 
+                <div class="h-100 divScroll hiddenDiv gelleryDiv" id="gallery">
+
+                  <!-- Vertically centered modal -->
+                  <div class="modal fade" tabindex="-1" id="ph">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                      <div class="modal-content">
+                        
+                        <img class="" src="" alt="" id="imgModal">
+                        <div class="m-3 position-absolute bottom-0 start-0">
+                          <p class="m-0 textColor smallText1 fw-bold d-inline" id="location"></p> <p class="textColor smallText1 d-inline" id="year"></p>
+                          <p class="m-0 textColor smallText2" id="camera"></p>
+                          <p class="m-0 textColor smallText3" id="phType"></p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Gallery -->
+                    <div class="row col-md-9 float-end">
+                      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img
+                          id="img1"
+                          src="./img/ph/1.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img1')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                        />
+
+                        <img
+                          id="img3"
+                          src="./img/ph/3.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img3')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img2"
+                          src="./img/ph/2.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img2')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img5"
+                          src="./img/ph/5.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img5')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img4"
+                          src="./img/ph/4.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img4')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img6"
+                          src="./img/ph/6.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover imgHover"
+                          onclick="mostrarModal('img6')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+                    </div>
+                    <!-- Gallery -->
+
+                    <div class="row col-md-9 float-end">
+                      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img
+                          id="img7"
+                          src="./img/ph/7.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img7')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img10"
+                          src="./img/ph/10.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img10')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img8"
+                          src="./img/ph/8.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img8')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img11"
+                          src="./img/ph/11.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img11')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img9"
+                          src="./img/ph/9.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img9')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Canon AE-1"
+                          data-phType="Film Photography"
+                          />
+
+                        <img
+                          id="img12"
+                          src="./img/ph/12.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img12')"
+                          data-location="São Paulo, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+                    </div>
+
+                    <!---->
+
+                    <div class="row col-md-9 float-end">
+                      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img
+                          id="img13"
+                          src="./img/ph/13.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img13')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2018"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img16"
+                          src="./img/ph/16.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img16')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img14"
+                          src="./img/ph/14.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img14')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img17"
+                          src="./img/ph/17.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img17')"
+                          data-location="Camboriú, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img15"
+                          src="./img/ph/15.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img15')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img18"
+                          src="./img/ph/18.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img18')"
+                          data-location="São Paulo, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+                    </div>
+
+                    <!---->
+
+                    <div class="row col-md-9 float-end">
+                      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                        <img
+                          id="img19"
+                          src="./img/ph/19.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img19')"
+                          data-location="Camboriú, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img22"
+                          src="./img/ph/22.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img22')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img20"
+                          src="./img/ph/20.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img20')"
+                          data-location="El Pinar, Uruguay"
+                          data-year="2016"
+                          data-camera="LG Optimus 3D"
+                          data-phType="Digital Photography"
+                          />
+
+                        <img
+                          id="img23"
+                          src="./img/ph/23.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img23')"
+                          data-location="Camboriú, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+
+                      <div class="col-lg-4 mb-4 mb-lg-0">
+                        <img
+                          id="img21"
+                          src="./img/ph/21.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img21')"
+                          data-location="Camboriú, Brasil"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+
+                          <img
+                          id="img24"
+                          src="./img/ph/24.jpg"
+                          class="w-100 shadow-1-strong mb-4 imgHover"
+                          onclick="mostrarModal('img24')"
+                          data-location="Montevideo, Uruguay"
+                          data-year="2017"
+                          data-camera="Nikon D3100"
+                          data-phType="Digital Photography"
+                          />
+                      </div>
+                    </div>
+
+                </div>
 
                 
                 <div class="col-md-12 h-100 textColor divScroll hiddenDiv" id="fechas">
 
-                    <p class="subtitle text-end">• Presentaciones en Vivo</p>
+                    <p class="subtitle text-end">• Inspirational Highlights</p>
 
                     <div class="d-flex justify-content-end aivFechas">
-                          <a class="text-end links d-flex stify-content-end a align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2023</p>
-                            <h2 class="m-0 name">Bluzz Live</h2>
+                          <a class="text-end links d-flex stify-content-end a align-items-end divFechas" href="https://www.all-about-photo.com/photographers/street-photographers.php" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">15/9/2023</p>
+                            <h2 class="m-0 name">Iconic Street Photographers</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">19/5/2023</p>
-                            <h2 class="m-0 name">La Trastienda Club MVD</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photographers/modern-photographers.php" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">15/9/2023</p>
+                            <h2 class="m-0 name">Modern Artists</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">4/2/2023</p>
-                            <h2 class="m-0 name">Sala Zitarrosa</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photographers/portrait-photographers.php" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">14/9/2023</p>
+                            <h2 class="m-0 name">Portrait Photographers of Iconic Status</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">29/10/2022</p>
-                            <h2 class="m-0 name">Antel Arena</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photographers/famous-photographers.php" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">14/9/2022</p>
+                            <h2 class="m-0 name">Famous Photographers</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">15/7/2022</p>
-                            <h2 class="m-0 name">Montevideo Music Box</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1409/best-rising-photographers-of-september-2023" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">12/9/2023</p>
+                            <h2 class="m-0 name">Best Rising Photographers of September</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">25/4/2022</p>
-                            <h2 class="m-0 name">Sala del Museo</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1393/best-modern-photographers-of-july-2023" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">31/7/2023</p>
+                            <h2 class="m-0 name">Modern Photographers of July</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">9/2/2022</p>
-                            <h2 class="m-0 name">Pinar Bier</h2>
+                        <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-events/photo-exhibition/2351/new-photography-2023" target="_blank">
+                          <p class="m-0 me-2 pb-2 boldFont pFecha">28/3/2023</p>
+                          <h2 class="m-0 name">New Photography 2023</h2>
+                        </a>
+                      </div>
+
+                      <div class="d-flex justify-content-end divFechas">
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1318/a-brief-history-of-pet-photography" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">16/3/2023</p>
+                            <h2 class="m-0 name">A Brief History of Pet Photography</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">5/10/2021</p>
-                            <h2 class="m-0 name">Clash city rockers Bar</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1295/ai-generated-images-a-threat-to-the-authenticity-of-photography" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">18/1/2023</p>
+                            <h2 class="m-0 name">AI-Generated Images</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">12/6/2021</p>
-                            <h2 class="m-0 name">Live Era</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1292/best-photography-courses-online" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">17/1/2023</p>
+                            <h2 class="m-0 name">Best Photography Courses Online</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">2/5/2021</p>
-                            <h2 class="m-0 name">COLD Music Bar</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1271/best-photo-books-of-2022" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">23/11/2022</p>
+                            <h2 class="m-0 name">Best Photo Books of 2022</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">19/4/2021</p>
-                            <h2 class="m-0 name">La Cava</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/982/cruise-night-by-kristin-bedford" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">5/5/2021</p>
+                            <h2 class="m-0 name">Cruise Night by Kristin Bedford</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">11/3/2021</p>
-                            <h2 class="m-0 name">Libertad Bier</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1048/rolls-and-tubes-a-history-of-photography" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">20/8/2021</p>
+                            <h2 class="m-0 name">Rolls and Tubes</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">24/2/2021</p>
-                            <h2 class="m-0 name">El Cañaberal</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/1042/history-of-surrealism-in-photography" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">20/8/2021</p>
+                            <h2 class="m-0 name">History of Surrealism in Photography</h2>
                           </a>
                       </div>
 
                       <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">12/1/2021</p>
-                            <h2 class="m-0 name">Euphoria Bar Libertad</h2>
+                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://www.all-about-photo.com/photo-articles/photo-article/725/diy-portrait-photography-tips-for-beginners" target="_blank">
+                            <p class="m-0 me-2 pb-2 boldFont pFecha">4/6/2020</p>
+                            <h2 class="m-0 name">Portrait Photography DIY</h2>
                           </a>
                       </div>
 
-                      <div class="d-flex justify-content-end divFechas">
-                          <a class="text-end links d-flex justify-content-end align-items-end divFechas" href="https://tickantel.com.uy/inicio/" target="_blank">
-                            <p class="m-0 me-2 pb-2 boldFont pFecha">26/8/2021</p>
-                            <h2 class="m-0 name">Roxx Bar</h2>
-                          </a>
-                      </div>
+      
 
                 </div>
 
@@ -176,13 +510,12 @@
                   <div class="col-6 col-sm-2 col-md-2 col-lg-1 ">
                     
                     <div class="position-absolute top-0 end-0 mt-4 pt-1">
-                      <a href="https://open.spotify.com/" target="_blank" class="description d-flex links mb-1">Spotify <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
-                      <a href="https://twitter.com/" target="_blank" class="description d-flex links mb-1">Twitter <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
-                      <a href="https://instagram.com/" target="_blank" class="description d-flex links mb-1">Instagram <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
+                      <a href="https://www.linkedin.com/in/martinnuy/" target="_blank" class="description d-flex links mb-1">Linkedin <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
+                      <a href="https://github.com/martinnuy" target="_blank" class="description d-flex links mb-1">Github <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
 
                     </div>
 
-                    <a href="mailto:julian@battes.com" target="_blank" class="boldFont description d-flex links position-absolute bottom-0 end-0 mb-3">Contacto <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
+                    <a href="mailto:martin@martinn.uy" target="_blank" class="boldFont description d-flex links position-absolute bottom-0 end-0 mb-3">Contact <span class="material-symbols-outlined d-flex ml-1">arrow_outward</span></a>
                   </div>
 
                 </div>
@@ -201,6 +534,7 @@
 
 
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/grained@0.0.2/grained.min.js"></script>
     <script src="./js/main.js"></script>

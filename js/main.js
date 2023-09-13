@@ -70,3 +70,74 @@ function showDiv( elementCambio ){
 }
 
 showDiv('home'); //Inicia mostrando el div 'home';
+
+function mostrarModal(imgId){
+
+  var imgElement = document.getElementById(imgId);
+
+  document.getElementById('imgModal').setAttribute('src', imgElement.getAttribute('src') );
+  document.getElementById('location').innerHTML = imgElement.getAttribute('data-location');
+  document.getElementById('year').innerHTML = '('+imgElement.getAttribute('data-year')+')';
+  document.getElementById('camera').innerHTML = imgElement.getAttribute('data-camera');
+  document.getElementById('phType').innerHTML = imgElement.getAttribute('data-phType');
+
+
+  $("#ph").modal('show');
+}
+
+
+
+
+$(document).ready(function(){
+  $('div.modal').on('show.bs.modal', function() {
+    var modal = this;
+    var id = modal.id;
+    // Utilizamos pushState para cambiar la URL
+    history.pushState(null, null, id);
+    window.onpopstate = function(event) {
+      if (!event.state){
+        $(modal).modal('hide');
+      }
+    };
+  });
+  $('div.modal').on('hidden.bs.modal', function() {
+    // Reemplazamos la URL cuando se cierra el modal
+    history.pushState(null, null, window.location.pathname);
+  });
+  // Cuando se hace clic en el botón de cierre, simulamos un retroceso en la historia
+  $('div.modal button.close').on('click', function(){
+    history.back();
+  });
+  // Cuando se presiona la tecla Esc con el modal abierto, simulamos un retroceso en la historia
+  $('div.modal').keyup(function(e) {
+    if (e.keyCode == 27){
+      history.back();          
+    }
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const nameElement = document.getElementById("loadName");
+  const lastnameElement = document.getElementById("lastname");
+  const loaderElement = document.getElementById("loader");
+
+  setTimeout(function () {
+      lastnameElement.style.opacity = "0";
+  }, 500); // Desvanece el apellido después de 0.5 segundos
+
+  setTimeout(function () {
+      nameElement.style.opacity = "0";
+  }, 1500); // Desvanece el nombre después de 1.5 segundos
+
+  setTimeout(function () {
+      loaderElement.style.opacity = "0";
+      setTimeout(function () {
+          loaderElement.style.display = "none";
+      }, 1000); // Oculta el div de carga después de que ambos elementos se desvanecen
+  
+      document.getElementsByTagName('body')[0].style.overflow = 'visible';
+    }, 2500); // Oculta el div de carga después de 2.5 segundos
+});

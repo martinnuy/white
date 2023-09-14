@@ -13,9 +13,7 @@
     src: url(../fonts/Raleway/Raleway-Black.ttf);
 }
 
-*{
-    font-family: raleway; 
-}
+
 
 *::selection {
     background-color: gray;
@@ -78,6 +76,10 @@ body{
 .smallText3{
     font-size: 11px;
     font-family: Arial !important;
+}
+
+.ralewayFont{
+    font-family: raleway;
 }
 
 .boldFont{

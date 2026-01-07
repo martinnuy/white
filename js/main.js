@@ -113,7 +113,7 @@ let currentModalIndex = 0;
 function openModal(index) {
     currentModalIndex = index;
     updateModalContent();
-    $("#ph").modal('show');
+    $("#photoModal").modal('show');
     
     // Update hash for deep linking (optional, keeping clean URL mostly)
     // history.pushState(null, null, '#view=' + portfolioImages[index].id);
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
   // Basic Hash Handling on Load
   const hash = window.location.hash.substring(1);
-  if (hash === 'gallery' || hash === 'fechas' || hash === 'contacto' || hash === 'about') {
+  if (hash === 'ph' || hash === 'fechas' || hash === 'contact' || hash === 'about') {
       // Allow initial load to settle then switch
       setTimeout(() => showDiv(hash), 500);
   } else {
@@ -173,7 +173,7 @@ $(document).ready(function(){
   
   // Keyboard navigation
   $(document).keydown(function(e) {
-    if ($('#ph').hasClass('show')) {
+    if ($('#photoModal').hasClass('show')) {
         switch(e.which) {
             case 37: // left
             prevImage();

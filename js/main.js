@@ -11,8 +11,8 @@ function changeImage() {
   const now = new Date();
   const seconds = now.getUTCSeconds();
 
-  //Cambia la imagen cada 20 segundos.
-  if( Math.floor(seconds / 40) == 1 ){
+  //Cambia la imagen cada 20 segundos - Logic slightly adjusted to just flip between 2 images
+  if( Math.floor(seconds / 20) % 2 === 0 ){ // Simplified logic
     imageDiv.style.backgroundImage = ' url(./img/circle.webp)';
     
     }else{
@@ -20,7 +20,7 @@ function changeImage() {
         currentImageIndex = 1;
     }
     
-    intervalId = setTimeout(changeImage, 1000); // Se checkea cada 1 segundos
+    intervalId = setTimeout(changeImage, 1000); 
 }
 
 function toggleAnimation() {
@@ -65,55 +65,130 @@ function showDiv( elementCambio ){
     }, 100);
 
   }, 400);//Deben ser los mismos milisegundos que en la clase 'hiddenDiv'.
-
+  
+  // Update Hash without scrolling
+  if(elementCambio !== 'home') {
+      history.pushState(null, null, '#' + elementCambio);
+  } else {
+      history.pushState(null, null, ' '); // Clear hash for home
+  }
   
 }
 
-showDiv('home'); //Inicia mostrando el div 'home';
 
-function mostrarModal(imgId){
+// --- dynamic Gallery Logic ---
 
-  var imgElement = document.getElementById(imgId);
+function renderGallery() {
+    const galleryContainer = document.getElementById('gallery-container');
+    if (!galleryContainer) return;
 
-  document.getElementById('imgModal').setAttribute('src', imgElement.getAttribute('src') );
-  document.getElementById('location').innerHTML = imgElement.getAttribute('data-location');
-  document.getElementById('year').innerHTML = '('+imgElement.getAttribute('data-year')+')';
-  document.getElementById('camera').innerHTML = imgElement.getAttribute('data-camera');
-  document.getElementById('phType').innerHTML = imgElement.getAttribute('data-phType');
-
-
-  $("#ph").modal('show');
+    galleryContainer.innerHTML = '';
+    
+    // Create 3 columns for Masonry layout
+    const columns = [];
+    for (let i = 0; i < 3; i++) {
+        const col = document.createElement('div');
+        // Responsive columns: Full width on mobile, 1/3 on large screens
+        col.className = 'col-lg-4 col-md-6 col-sm-12 mb-4 mb-lg-0'; 
+        columns.push(col);
+    }
+    
+    // Distribute images
+    portfolioImages.forEach((img, index) => {
+        const imgEl = document.createElement('img');
+        imgEl.src = img.src;
+        imgEl.className = 'w-100 shadow-1-strong mb-4 imgHover';
+        imgEl.onclick = () => openModal(index);
+        imgEl.style.cursor = 'pointer';
+        
+        // Simple distribution: 0->col0, 1->col1, 2->col2, 3->col0...
+        columns[index % 3].appendChild(imgEl);
+    });
+    
+    columns.forEach(col => galleryContainer.appendChild(col));
 }
 
+let currentModalIndex = 0;
 
+function openModal(index) {
+    currentModalIndex = index;
+    updateModalContent();
+    $("#ph").modal('show');
+    
+    // Update hash for deep linking (optional, keeping clean URL mostly)
+    // history.pushState(null, null, '#view=' + portfolioImages[index].id);
+}
+
+function updateModalContent() {
+    if (currentModalIndex < 0 || currentModalIndex >= portfolioImages.length) return;
+    
+    const data = portfolioImages[currentModalIndex];
+    const imgElement = document.getElementById('imgModal');
+    
+    // Fade out effect for smoother transition
+    imgElement.style.opacity = '0.5';
+    
+    setTimeout(() => {
+        imgElement.setAttribute('src', data.src);
+        document.getElementById('location').innerHTML = data.location;
+        document.getElementById('year').innerHTML = '(' + data.year + ')';
+        document.getElementById('camera').innerHTML = data.camera;
+        document.getElementById('phType').innerHTML = data.type;
+        imgElement.style.opacity = '1';
+    }, 150);
+}
+
+function nextImage() {
+    currentModalIndex = (currentModalIndex + 1) % portfolioImages.length;
+    updateModalContent();
+}
+
+function prevImage() {
+    currentModalIndex = (currentModalIndex - 1 + portfolioImages.length) % portfolioImages.length;
+    updateModalContent();
+}
+
+// Helper to bind to window so HTML onclicks work
+window.nextImage = nextImage;
+window.prevImage = prevImage;
 
 
 $(document).ready(function(){
-  $('div.modal').on('show.bs.modal', function() {
-    var modal = this;
-    var id = modal.id;
-    // Utilizamos pushState para cambiar la URL
-    history.pushState(null, null, id);
-    window.onpopstate = function(event) {
-      if (!event.state){
-        $(modal).modal('hide');
-      }
-    };
-  });
+  renderGallery();
+
+  // Basic Hash Handling on Load
+  const hash = window.location.hash.substring(1);
+  if (hash === 'gallery' || hash === 'fechas' || hash === 'contacto' || hash === 'about') {
+      // Allow initial load to settle then switch
+      setTimeout(() => showDiv(hash), 500);
+  } else {
+      showDiv('home'); 
+  }
+
+  // Handle modal events
   $('div.modal').on('hidden.bs.modal', function() {
-    // Reemplazamos la URL cuando se cierra el modal
-    history.pushState(null, null, window.location.pathname);
+    // Return URL to section
+    history.pushState(null, null, '#' + elementoActual);
   });
-  // Cuando se hace clic en el botón de cierre, simulamos un retroceso en la historia
-  $('div.modal button.close').on('click', function(){
-    history.back();
-  });
-  // Cuando se presiona la tecla Esc con el modal abierto, simulamos un retroceso en la historia
-  $('div.modal').keyup(function(e) {
-    if (e.keyCode == 27){
-      history.back();          
+  
+  // Keyboard navigation
+  $(document).keydown(function(e) {
+    if ($('#ph').hasClass('show')) {
+        switch(e.which) {
+            case 37: // left
+            prevImage();
+            break;
+
+            case 39: // right
+            nextImage();
+            break;
+
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
     }
   });
+
 });
 
 
@@ -125,19 +200,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const loaderElement = document.getElementById("loader");
 
   setTimeout(function () {
-      lastnameElement.style.opacity = "0";
-  }, 500); // Desvanece el apellido después de 0.5 segundos
+      if(lastnameElement) lastnameElement.style.opacity = "0";
+  }, 500); 
 
   setTimeout(function () {
-      nameElement.style.opacity = "0";
-  }, 1500); // Desvanece el nombre después de 1.5 segundos
+      if(nameElement) nameElement.style.opacity = "0";
+  }, 1500); 
 
   setTimeout(function () {
-      loaderElement.style.opacity = "0";
-      setTimeout(function () {
-          loaderElement.style.display = "none";
-      }, 1000); // Oculta el div de carga después de que ambos elementos se desvanecen
+      if(loaderElement) {
+          loaderElement.style.opacity = "0";
+          setTimeout(function () {
+              loaderElement.style.display = "none";
+          }, 1000); 
+      }
   
       document.getElementsByTagName('body')[0].style.overflow = 'visible';
-    }, 2500); // Oculta el div de carga después de 2.5 segundos
+    }, 2500); 
 });
